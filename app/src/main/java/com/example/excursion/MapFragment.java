@@ -18,7 +18,7 @@ import com.yandex.mapkit.mapview.MapView;
 public class MapFragment extends Fragment {
 
     private final String MAPKIT_API_KEY = "49c3c22c-61da-4fef-885c-2f8c701e4622";
-    private final Point TARGET_LOCATION = new Point(59.945933, 30.320045);
+    private final Point TARGET_LOCATION = new Point(59.220496, 39.891523);
     private MapView mapView;
 
     @Override
@@ -34,7 +34,7 @@ public class MapFragment extends Fragment {
         mapView = view.findViewById(R.id.mapview);
         mapView.getMap().move(
                 new CameraPosition(TARGET_LOCATION, 14.0f, 0.0f, 0.0f),
-                new Animation(Animation.Type.SMOOTH, 5),
+                new Animation(Animation.Type.SMOOTH, 0),
                 null);
         return view;
     }
