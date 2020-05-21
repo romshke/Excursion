@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.Window;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.yandex.mapkit.MapKitFactory;
 
 public class MainActivity extends AppCompatActivity {
 
