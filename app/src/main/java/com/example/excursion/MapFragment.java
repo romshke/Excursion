@@ -46,11 +46,16 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng marker = new LatLng(59.223619, 39.882157);
-        mMap.addMarker(new MarkerOptions().position(marker).title("Marker 1"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker, 16));
-        mMap.setMinZoomPreference(10);
+        for (int i=0; i!=10; i++) {
+            // Add a marker in Sydney and move the camera
+            double k = 39.892157 + i*0.01;
+
+            LatLng marker = new LatLng(59.223619, k);
+            mMap.addMarker(new MarkerOptions().position(marker).title("Marker " + i));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker, 16));
+            mMap.setMinZoomPreference(10);
+            System.out.println(k);
+        }
     }
 
 }

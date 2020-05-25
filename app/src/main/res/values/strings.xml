@@ -6,4 +6,10 @@
     <string name="remote_error_message">Remote server error</string>
     <string name="unknown_error_message">Unknown error</string>
     <string name="google_maps_key">AIzaSyBVO8-mtBjsBifpV8JBCRAgvYE7oWbN2y8</string>
+    <string name="bottom_navigation_title_map">Map</string>
+    <string name="bottom_navigation_title_places">Places</string>
+    <string name="bottom_navigation_title_routes">Routes</string>
+    <string name="layout_list_item_image_contentDescription">Image</string>
+    <string name="layout_list_item_sight_name">Ансамбль Вологодского кремля (Архиерейского дома)</string>
+    <string name="layout_list_item_sight_address">Россия, Вологодская обл., г. Вологда, ул. С. Орлова, 15</string>
 </resources>
