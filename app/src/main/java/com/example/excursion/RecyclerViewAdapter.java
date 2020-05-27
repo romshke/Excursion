@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,12 +20,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private static final String TAG = "RecyclerViewAdapter";
 
     private ArrayList<String> sightName, sightAddress;
+    private ArrayList<Integer> sightImage;
     private Context context;
 
-    RecyclerViewAdapter(Context context, ArrayList<String> sightName, ArrayList<String> sightAddress) {
+    RecyclerViewAdapter(Context context, ArrayList<String> sightName, ArrayList<String> sightAddress, ArrayList<Integer> sightImage) {
         this.context = context;
         this.sightName = sightName;
         this.sightAddress = sightAddress;
+        this.sightImage = sightImage;
     }
 
     @NonNull
@@ -40,6 +43,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.list_itemName.setText(String.valueOf(sightName.get(position)));
         holder.list_itemAddress.setText(String.valueOf(sightAddress.get(position)));
+        holder.list_itemImage.setImageResource(sightImage.get(position));
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,12 +62,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView list_itemName, list_itemAddress;
+        ImageView list_itemImage;
         RelativeLayout parentLayout;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             list_itemName = itemView.findViewById(R.id.list_item_name);
             list_itemAddress = itemView.findViewById(R.id.list_item_address);
+            list_itemImage = itemView.findViewById(R.id.list_item_image);
             parentLayout = itemView.findViewById(R.id.parent_layout);
         }
     }

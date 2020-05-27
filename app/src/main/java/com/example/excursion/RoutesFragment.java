@@ -1,6 +1,7 @@
 package com.example.excursion;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +17,14 @@ import java.util.ArrayList;
 
 public class RoutesFragment extends Fragment {
 
+    private static final String TAG = "RoutesFragment";
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+
+
         return inflater.inflate(R.layout.fragment_routes, container, false);
     }
 }

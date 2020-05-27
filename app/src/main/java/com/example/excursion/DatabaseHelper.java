@@ -18,13 +18,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static String DB_PATH = ""; // полный путь к базе данных
     private static String DB_NAME = "excursion.db";
-    private static final int DB_VERSION = 2; // версия базы данных
+    private static final int DB_VERSION = 3; // версия базы данных
     private static final String TABLE_NAME = "sights"; // название таблицы в бд
-    // названия столбцов
-    static final String COLUMN_ID = "_id";
-    static final String COLUMN_NAME = "name";
-    static final String COLUMN_ADDRESS = "address";
-    static final String COLUMN_BRIEF_DESCRIPTION = "brief_description";
+//    // названия столбцов
+//    static final String COLUMN_ID = "_id";
+//    static final String COLUMN_NAME = "name";
+//    static final String COLUMN_ADDRESS = "address";
+//    static final String COLUMN_BRIEF_DESCRIPTION = "brief_description";
 
     private SQLiteDatabase database;
     private final Context context;
@@ -33,13 +33,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     DatabaseHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
 
-//        if (android.os.Build.VERSION.SDK_INT >= 21)
-//            DB_PATH = context.getApplicationInfo().dataDir + "/databases/";
-//        else
-//            DB_PATH = "/data/data/" + context.getPackageName() + "/databases/";
+        if (android.os.Build.VERSION.SDK_INT >= 21)
+            DB_PATH = context.getApplicationInfo().dataDir + "/databases/";
+        else
+            DB_PATH = "/data/data/" + context.getPackageName() + "/databases/";
 
-        assert context != null;
-        DB_PATH = context.getFilesDir().getPath() + DB_NAME;
+//        assert context != null;
+//        DB_PATH = context.getFilesDir().getPath() + DB_NAME;
 
         this.context = context;
 
