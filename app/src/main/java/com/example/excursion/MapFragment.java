@@ -17,8 +17,10 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.maps.DirectionsApi;
 import com.google.maps.DirectionsApiRequest;
 import com.google.maps.GeoApiContext;
@@ -43,6 +45,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     private List<MarkerOptions> markers;
     private Iterator iteratorName, iteratorLatitude, iteratorLongitude, iteratorPlaces, iteratorMarkers;
     private ArrayList<LatLng> places;
+    private List<com.google.maps.model.LatLng> path;
     private GeoApiContext geoApiContext;
 
     @Override
@@ -68,8 +71,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         } catch (SQLException mSQLException) {
             throw mSQLException;
         }
-
-
 
         sightName = new ArrayList<>();
         sightLatitude = new ArrayList<>();
@@ -148,8 +149,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         });
 
 
-        System.out.println(directions);
-        System.out.println("asdsadsadsada");
+
 
 
 

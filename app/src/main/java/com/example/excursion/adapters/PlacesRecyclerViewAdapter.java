@@ -1,4 +1,4 @@
-package com.example.excursion;
+package com.example.excursion.adapters;
 
 import android.content.Context;
 import android.util.Log;
@@ -13,9 +13,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.excursion.R;
+
 import java.util.ArrayList;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
+public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter<PlacesRecyclerViewAdapter.ViewHolder>{
 
     private static final String TAG = "RecyclerViewAdapter";
 
@@ -23,7 +25,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<Integer> sightImage;
     private Context context;
 
-    RecyclerViewAdapter(Context context, ArrayList<String> sightName, ArrayList<String> sightAddress, ArrayList<Integer> sightImage) {
+    public PlacesRecyclerViewAdapter(Context context, ArrayList<String> sightName, ArrayList<String> sightAddress, ArrayList<Integer> sightImage) {
         this.context = context;
         this.sightName = sightName;
         this.sightAddress = sightAddress;
