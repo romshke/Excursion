@@ -19,17 +19,12 @@ import com.example.excursion.adapters.PlacesRecyclerViewAdapter;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Objects;
 
 public class PlacesFragment extends Fragment {
 
     private DatabaseHelper databaseHelper;
     private SQLiteDatabase database;
-    private ArrayList<String> sightName, sightAddress, sightImagePath;
-    private ArrayList<Integer> sightImage;
-    private Iterator sightImagePathIterator;
-
+    private ArrayList<Sight> sights;
 
     @Nullable
     @Override
@@ -50,26 +45,18 @@ public class PlacesFragment extends Fragment {
             throw mSQLException;
         }
 
-        sightName = new ArrayList<>();
-        sightAddress = new ArrayList<>();
-        sightImagePath = new ArrayList<>();
-        sightImage = new ArrayList<>();
-
-        storeDataInArrays();
-
-        sightImagePathIterator = sightImagePath.iterator();
-
-        setImages();
+        sights = new ArrayList<>();
+        storeData();
 
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
-        PlacesRecyclerViewAdapter adapter = new PlacesRecyclerViewAdapter(this.getContext(), sightName, sightAddress, sightImage);
+        PlacesRecyclerViewAdapter adapter = new PlacesRecyclerViewAdapter(this.getContext(), sights);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         return view;
     }
 
-    private void storeDataInArrays() {
+    private void storeData() {
         Cursor cursor = databaseHelper.readAllData();
 
         if (cursor.getCount() == 0) {
@@ -77,17 +64,8 @@ public class PlacesFragment extends Fragment {
         }
         else {
             while (cursor.moveToNext()) {
-                sightName.add(cursor.getString(1));
-                sightAddress.add(cursor.getString(2));
-                sightImagePath.add(cursor.getString(5));
+                sights.add(new Sight(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getDouble(3), cursor.getDouble(4), cursor.getString(5)));
             }
-        }
-    }
-
-    private void setImages() {
-        while (sightImagePathIterator.hasNext()) {
-//            int resource = ;
-            sightImage.add(getResources().getIdentifier(sightImagePathIterator.next().toString(), null, Objects.requireNonNull(this.getContext()).getPackageName()));
         }
     }
 

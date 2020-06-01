@@ -1,6 +1,7 @@
 package com.example.excursion.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,29 +14,29 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.excursion.PlaceDetailActivity;
 import com.example.excursion.R;
+import com.example.excursion.Sight;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter<PlacesRecyclerViewAdapter.ViewHolder>{
 
     private static final String TAG = "RecyclerViewAdapter";
 
-    private ArrayList<String> sightName, sightAddress;
-    private ArrayList<Integer> sightImage;
     private Context context;
+    private ArrayList<Sight> sights;
 
-    public PlacesRecyclerViewAdapter(Context context, ArrayList<String> sightName, ArrayList<String> sightAddress, ArrayList<Integer> sightImage) {
+    public PlacesRecyclerViewAdapter(Context context, ArrayList<Sight> sights) {
         this.context = context;
-        this.sightName = sightName;
-        this.sightAddress = sightAddress;
-        this.sightImage = sightImage;
+        this.sights = sights;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.layout_listitem, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.layout_places_list_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -43,22 +44,32 @@ public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter<PlacesRecycl
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder: called");
 
-        holder.list_itemName.setText(String.valueOf(sightName.get(position)));
-        holder.list_itemAddress.setText(String.valueOf(sightAddress.get(position)));
-        holder.list_itemImage.setImageResource(sightImage.get(position));
+        holder.list_itemName.setText(String.valueOf(sights.get(position).getSightName()));
+        holder.list_itemAddress.setText(String.valueOf(sights.get(position).getSightAddress()));
+        holder.list_itemImage.setImageResource(setImage(sights.get(position).getSightImagePath()));
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: clicked on: " + sightName.get(position));
-                Toast.makeText(context, sightName.get(position), Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onClick: clicked on: " + sights.get(position).getSightName() + sights.get(position).getSightID());
+                Toast.makeText(context, sights.get(position).getSightName(), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(context, PlaceDetailActivity.class);
+                intent.putExtra("sightName", sights.get(position).getSightName());
+                intent.putExtra("sightAddress", sights.get(position).getSightAddress());
+                intent.putExtra("sightImagePath", sights.get(position).getSightImagePath());
+                context.startActivity(intent);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return sightName.size();
+        return sights.size();
+    }
+
+    private int setImage(String imagePath) {
+        return context.getResources().getIdentifier(imagePath, null, Objects.requireNonNull(context).getPackageName());
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
