@@ -1,39 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PlaceDetailActivity">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/place_detail_image"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        android:layout_marginBottom="15dp"
-        android:src="@mipmap/image1"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/place_detail_name"
-        android:layout_below="@+id/place_detail_image"
-        android:text="@string/layout_list_item_sight_name"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_marginBottom="15dp"
-        android:textColor="#000"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/place_detail_image"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_marginBottom="15dp"
+            android:src="@mipmap/image1"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/place_detail_address"
-        android:layout_below="@+id/place_detail_name"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:text="@string/layout_list_item_sight_address"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/place_detail_name"
+            android:text="@string/layout_list_item_sight_name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="#000"/>
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/place_detail_address"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/layout_list_item_sight_address"
+            android:textColor="#000"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/place_detail_source_link"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/place_detail_source_link"
+            android:textColor="#15a"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/place_detail_details"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/place_detail_details"
+            android:textColor="#000"/>
+    </LinearLayout>
+
+</ScrollView>

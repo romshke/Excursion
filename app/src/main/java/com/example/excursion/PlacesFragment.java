@@ -48,6 +48,9 @@ public class PlacesFragment extends Fragment {
         sights = new ArrayList<>();
         storeData();
 
+        System.out.println(sights.get(1).getSightName());
+        System.out.println(sights.get(1).getSightDetails());
+
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         PlacesRecyclerViewAdapter adapter = new PlacesRecyclerViewAdapter(this.getContext(), sights);
         recyclerView.setAdapter(adapter);
@@ -64,7 +67,7 @@ public class PlacesFragment extends Fragment {
         }
         else {
             while (cursor.moveToNext()) {
-                sights.add(new Sight(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getDouble(3), cursor.getDouble(4), cursor.getString(5)));
+                sights.add(new Sight(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getDouble(3), cursor.getDouble(4), cursor.getString(5), cursor.getString(6), cursor.getString(7)));
             }
         }
     }

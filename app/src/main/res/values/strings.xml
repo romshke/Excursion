@@ -12,4 +12,6 @@
     <string name="layout_list_item_image_contentDescription">Image</string>
     <string name="layout_list_item_sight_name">Колокольня Софийского собора</string>
     <string name="layout_list_item_sight_address">Россия, Вологодская обл., г. Вологда, ул. С. Орлова, 15</string>
+    <string name="place_detail_details">Историческая сводка об объекте</string>
+    <string name="place_detail_source_link">Источник QR-35. Нажмите, чтобы посмотреть в браузере.</string>
 </resources>

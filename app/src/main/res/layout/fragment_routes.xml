@@ -22,8 +22,14 @@
         android:layout_marginBottom="22dp"
         android:text="Кнопка" />
 
-
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/routes_text"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="142dp"
+        android:autoLink="web"
+        android:text="Источник QR-35: http://qr35.ru/ru/obekty/O3510063004" />
 
 
 </RelativeLayout>

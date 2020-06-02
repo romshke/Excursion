@@ -31,7 +31,7 @@ public class RoutesFragment extends Fragment {
 
 
     public interface addNewMarkerInterface {
-        public void addMarker(MarkerOptions s);
+        void addMarker(MarkerOptions s);
     }
 
     addNewMarkerInterface addNewMarkerInterface;
@@ -65,7 +65,7 @@ public class RoutesFragment extends Fragment {
             }
         });
 
-        ((TextView) view.findViewById(R.id.routes_text)).setText(HtmlCompat.fromHtml("<p>This is the awesome place to gain</p><p><strong>awesomeness </strong>and <em>deliciuosness. </em>very<em> </em><u>nice</u></p>", HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH));
+        ((TextView) view.findViewById(R.id.routes_text)).setText(HtmlCompat.fromHtml("<p>This is the awesome place to gain</p><p><strong>awesomeness </strong>and <em>deliciuosness. </em>very<em> </em><u>nice</u></p><p><a href='http://qr35.ru/ru/obekty/O3510063004'>Колокольня софийского собора</a></p>", HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH));
         
         return view;
     }

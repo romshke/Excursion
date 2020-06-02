@@ -117,7 +117,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         }
         else {
             while (cursor.moveToNext()) {
-                sights.add(new Sight(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getDouble(3), cursor.getDouble(4), cursor.getString(5)));
+                sights.add(new Sight(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getDouble(3), cursor.getDouble(4), cursor.getString(5), cursor.getString(6), cursor.getString(7)));
             }
         }
     }
@@ -163,7 +163,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         }
 
         //Делаем линию более менее симпатичное
-        line.width(10f).color(R.color.mycolor);
+        line.width(10f).color(R.color.colorAccent);
 
         //Добавляем линию на карту
         googleMap.addPolyline(line);

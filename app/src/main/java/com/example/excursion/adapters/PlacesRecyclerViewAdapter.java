@@ -58,6 +58,8 @@ public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter<PlacesRecycl
                 intent.putExtra("sightName", sights.get(position).getSightName());
                 intent.putExtra("sightAddress", sights.get(position).getSightAddress());
                 intent.putExtra("sightImagePath", sights.get(position).getSightImagePath());
+                intent.putExtra("sightDetails", sights.get(position).getSightDetails());
+                intent.putExtra("sightSourceLink", sights.get(position).getSightSourceLink());
                 context.startActivity(intent);
             }
         });

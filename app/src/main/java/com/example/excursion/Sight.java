@@ -3,16 +3,18 @@ package com.example.excursion;
 public class Sight {
 
     private Integer sightID;
-    private String sightName, sightAddress, sightImagePath, sightInformation;
+    private String sightName, sightAddress, sightImagePath, sightDetails, sightSourceLink;
     private Double sightLatitude, sightLongitude;
 
-    public Sight(Integer sightID, String sightName, String sightAddress, Double sightLatitude, Double sightLongitude, String sightImagePath) {
+    public Sight(Integer sightID, String sightName, String sightAddress, Double sightLatitude, Double sightLongitude, String sightImagePath, String sightDetails, String sightSourceLink) {
         this.sightID = sightID;
         this.sightName = sightName;
         this.sightAddress = sightAddress;
         this.sightLatitude = sightLatitude;
         this.sightLongitude = sightLongitude;
         this.sightImagePath = sightImagePath;
+        this.sightDetails = sightDetails;
+        this.sightSourceLink = sightSourceLink;
     }
 
     public Integer getSightID() {
@@ -37,5 +39,13 @@ public class Sight {
 
     public String getSightImagePath() {
         return sightImagePath;
+    }
+
+    public String getSightDetails() {
+        return sightDetails;
+    }
+
+    public String getSightSourceLink() {
+        return sightSourceLink;
     }
 }
