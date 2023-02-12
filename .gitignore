@@ -16,3 +16,5 @@ output.json
 
 /app/src/main/res/values/google_maps.xml
 
+/app/src/test/
+/app/src/androidTest/
