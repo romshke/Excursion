@@ -2,14 +2,11 @@ package com.example.excursion;
 
 public class Sight {
 
-    private final Integer sightID;
-    private final String sightName, sightAddress,
-            sightImagePath, sightDetails, sightSourceLink;
-    private final Double sightLatitude, sightLongitude;
+    private Integer sightID;
+    private String sightName, sightAddress, sightImagePath, sightDetails, sightSourceLink;
+    private Double sightLatitude, sightLongitude;
 
-    public Sight(Integer sightID, String sightName, String sightAddress,
-                 Double sightLatitude, Double sightLongitude, String sightImagePath,
-                 String sightDetails, String sightSourceLink) {
+    public Sight(Integer sightID, String sightName, String sightAddress, Double sightLatitude, Double sightLongitude, String sightImagePath, String sightDetails, String sightSourceLink) {
         this.sightID = sightID;
         this.sightName = sightName;
         this.sightAddress = sightAddress;
@@ -52,5 +49,3 @@ public class Sight {
         return sightSourceLink;
     }
 }
-
-

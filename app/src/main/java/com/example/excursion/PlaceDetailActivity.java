@@ -17,11 +17,14 @@ import java.util.Objects;
 
 public class PlaceDetailActivity extends AppCompatActivity {
 
-    private static final String TAG = "PlaceDetailActivity";
+    private static final String TAG = "PlaceDetailActivity1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE); //will hide the title
+        Objects.requireNonNull(getSupportActionBar()).hide(); // hide the title bar
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         setContentView(R.layout.activity_place_detail);
@@ -30,10 +33,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
     }
 
     private void getIncomingIntent() {
-        if (getIntent().hasExtra("sightName")
-                && getIntent().hasExtra("sightAddress")
-                && getIntent().hasExtra("sightImagePath")
-                && getIntent().hasExtra("sightDetails")){
+        if (getIntent().hasExtra("sightName") && getIntent().hasExtra("sightAddress") && getIntent().hasExtra("sightImagePath") && getIntent().hasExtra("sightDetails")){
 
             Log.d(TAG, "getIncomingIntent: get intent");
 
@@ -47,17 +47,11 @@ public class PlaceDetailActivity extends AppCompatActivity {
         }
     }
 
-    private void fillActivity(String sightName, String sightAddress,
-                              String sightImagePath, String sightDetails,
-                              final String sightSourceLink) {
-        ((ImageView) findViewById(R.id.place_detail_image)).
-                setImageResource(this.getResources()
-                        .getIdentifier(sightImagePath, null,
-                                Objects.requireNonNull(this).getPackageName()));
+    private void fillActivity(String sightName, String sightAddress, String sightImagePath, String sightDetails, final String sightSourceLink) {
+        ((ImageView) findViewById(R.id.place_detail_image)).setImageResource(this.getResources().getIdentifier(sightImagePath, null, Objects.requireNonNull(this).getPackageName()));
         ((TextView) findViewById(R.id.place_detail_name)).setText(sightName);
         ((TextView) findViewById(R.id.place_detail_address)).setText(sightAddress);
-        ((TextView) findViewById(R.id.place_detail_details)).setText(
-                HtmlCompat.fromHtml(sightDetails, HtmlCompat.FROM_HTML_MODE_LEGACY));
+        ((TextView) findViewById(R.id.place_detail_details)).setText(HtmlCompat.fromHtml(sightDetails, HtmlCompat.FROM_HTML_MODE_LEGACY));
         findViewById(R.id.place_detail_source_link).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,12 +1,14 @@
 <resources>
     <string name="app_name">Excursion</string>
+
     <string name="not_found_error_message">Not found</string>
     <string name="network_error_message">Network error</string>
     <string name="remote_error_message">Remote server error</string>
     <string name="unknown_error_message">Unknown error</string>
-    <string name="bottom_navigation_title_map">Карта</string>
-    <string name="bottom_navigation_title_places">Места</string>
-    <string name="bottom_navigation_title_routes">Маршруты</string>
+    <string name="google_maps_key">AIzaSyBVO8-mtBjsBifpV8JBCRAgvYE7oWbN2y8</string>
+    <string name="bottom_navigation_title_map">Map</string>
+    <string name="bottom_navigation_title_places">Places</string>
+    <string name="bottom_navigation_title_routes">Routes</string>
     <string name="layout_list_item_image_contentDescription">Image</string>
     <string name="layout_list_item_sight_name">Колокольня Софийского собора</string>
     <string name="layout_list_item_sight_address">Россия, Вологодская обл., г. Вологда, ул. С. Орлова, 15</string>

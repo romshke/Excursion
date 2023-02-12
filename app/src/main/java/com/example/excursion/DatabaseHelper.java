@@ -17,10 +17,9 @@ import java.io.OutputStream;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static String DB_PATH = ""; // полный путь к базе данных
-    private static final String DB_NAME = "excursion.db"; // имя файла бызы даннх
-    private static final int DB_VERSION = 10; // версия базы данных
-    private static final String SIGHTS_TABLE_NAME = "sights"; // название таблицы в бд
-    private static final String ROUTES_TABLE_NAME = "routes";
+    private static String DB_NAME = "excursion.db";
+    private static final int DB_VERSION = 8; // версия базы данных
+    private static final String TABLE_NAME = "sights"; // название таблицы в бд
     private SQLiteDatabase database;
     private final Context context;
     private boolean needUpdate = false;
@@ -31,7 +30,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (android.os.Build.VERSION.SDK_INT >= 21) {
             assert context != null;
             DB_PATH = context.getApplicationInfo().dataDir + "/databases/";
-        } else {
+        }
+        else {
             assert context != null;
             DB_PATH = "/data/data/" + context.getPackageName() + "/databases/";
         }
@@ -40,7 +40,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //        DB_PATH = context.getFilesDir().getPath() + DB_NAME;
 
         this.context = context;
+
         copyDataBase();
+
         this.getReadableDatabase();
     }
 
@@ -51,6 +53,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 dbFile.delete();
 
             copyDataBase();
+
             needUpdate = false;
         }
     }
@@ -74,6 +77,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private void copyDBFile() throws IOException {
         InputStream mInput = context.getAssets().open(DB_NAME);
+        //InputStream mInput = mContext.getResources().openRawResource(R.raw.info);
         OutputStream mOutput = new FileOutputStream(DB_PATH + DB_NAME);
         byte[] mBuffer = new byte[1024];
         int mLength;
@@ -85,9 +89,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public boolean openDataBase() throws SQLException {
-        database = SQLiteDatabase.openDatabase(
-                DB_PATH + DB_NAME,
-                null, SQLiteDatabase.CREATE_IF_NECESSARY);
+        database = SQLiteDatabase.openDatabase(DB_PATH + DB_NAME, null, SQLiteDatabase.CREATE_IF_NECESSARY);
         return database != null;
     }
 
@@ -101,31 +103,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             needUpdate = true;
     }
 
-    Cursor readAllSightsData() {
-        String querySights = "SELECT * FROM " + SIGHTS_TABLE_NAME;
+    Cursor readAllData() {
+        String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase database = this.getReadableDatabase();
 
         Cursor cursor = null;
         if (database != null) {
-            cursor = database.rawQuery(querySights, null);
-        }
-
-        return cursor;
-    }
-
-    Cursor readAllRoutesData() {
-        String queryRoutes = "SELECT * FROM " + ROUTES_TABLE_NAME;
-        SQLiteDatabase database = this.getReadableDatabase();
-
-        Cursor cursor = null;
-        if (database != null) {
-            cursor = database.rawQuery(queryRoutes, null);
+            cursor = database.rawQuery(query, null);
         }
 
         return cursor;
     }
 }
-
-
-
-
