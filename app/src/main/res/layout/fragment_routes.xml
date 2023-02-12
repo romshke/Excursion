@@ -1,35 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
     android:id="@+id/routes_fragment">
 
-    <TextView
+
+    <AutoCompleteTextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Routes"
+        android:layout_height="60dp"
+        android:id="@+id/waypoint_autocomplete_text"
+        android:gravity="center"
+        android:theme="@style/Autocomplete"
+        android:hint="Введите точку маршрута"
         android:textSize="20sp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_centerInParent="true"
-        android:id="@+id/routes_text"/>
+        android:textColor="#000"/>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="22dp"
-        android:text="Кнопка" />
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/routes_text"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="142dp"
-        android:autoLink="web"
-        android:text="Источник QR-35: http://qr35.ru/ru/obekty/O3510063004" />
+        android:id="@+id/routes_recyclerview"
+        android:layout_below="@+id/waypoint_autocomplete_text"
+        android:layout_above="@+id/buttons_layout"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:id="@+id/buttons_layout">
+
+        <Button
+            android:id="@+id/make_route_button"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            android:background="@drawable/custom_button"
+            android:text="Построить маршрут"/>
+
+        <Button
+            android:id="@+id/choose_route_button"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            android:background="@drawable/custom_button"
+            android:text="Выбрать маршрут"/>
+        
+    </LinearLayout>
 
 </RelativeLayout>
