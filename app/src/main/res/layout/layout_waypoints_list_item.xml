@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:id="@+id/waypoints_list_item_parent_layout">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/waypoints_list_item_name"
+        android:textSize="20sp"
+        android:gravity="center_vertical"
+        android:paddingLeft="20sp"
+        android:paddingRight="20sp"
+        android:textColor="#000"
+        android:text="@string/layout_list_item_sight_name"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/waypoints_list_item_address"
+        android:textSize="14sp"
+        android:layout_below="@+id/waypoints_list_item_name"
+        android:paddingLeft="20sp"
+        android:paddingRight="20sp"
+        android:text="@string/layout_list_item_sight_address"/>
+
+</RelativeLayout>
