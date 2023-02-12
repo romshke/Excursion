@@ -21,7 +21,7 @@ import com.example.excursion.Sight;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter<PlacesRecyclerViewAdapter.ViewHolder>{
+public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter<PlacesRecyclerViewAdapter.ViewHolder> {
 
     private static final String TAG = "RecyclerViewAdapter";
 
@@ -44,22 +44,22 @@ public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter<PlacesRecycl
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder: called");
 
-        holder.list_itemName.setText(String.valueOf(sights.get(position).getSightName()));
-        holder.list_itemAddress.setText(String.valueOf(sights.get(position).getSightAddress()));
-        holder.list_itemImage.setImageResource(setImage(sights.get(position).getSightImagePath()));
+        holder.list_itemName.setText(String.valueOf(sights.get(holder.getAdapterPosition()).getSightName()));
+        holder.list_itemAddress.setText(String.valueOf(sights.get(holder.getAdapterPosition()).getSightAddress()));
+        holder.list_itemImage.setImageResource(setImage(sights.get(holder.getAdapterPosition()).getSightImagePath()));
 
-        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+        holder.list_itemParentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: clicked on: " + sights.get(position).getSightName() + sights.get(position).getSightID());
-                Toast.makeText(context, sights.get(position).getSightName(), Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onClick: clicked on: " + sights.get(holder.getAdapterPosition()).getSightName() + sights.get(holder.getAdapterPosition()).getSightID());
+//                Toast.makeText(context, sights.get(position).getSightName(), Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(context, PlaceDetailActivity.class);
-                intent.putExtra("sightName", sights.get(position).getSightName());
-                intent.putExtra("sightAddress", sights.get(position).getSightAddress());
-                intent.putExtra("sightImagePath", sights.get(position).getSightImagePath());
-                intent.putExtra("sightDetails", sights.get(position).getSightDetails());
-                intent.putExtra("sightSourceLink", sights.get(position).getSightSourceLink());
+                intent.putExtra("sightName", sights.get(holder.getAdapterPosition()).getSightName());
+                intent.putExtra("sightAddress", sights.get(holder.getAdapterPosition()).getSightAddress());
+                intent.putExtra("sightImagePath", sights.get(holder.getAdapterPosition()).getSightImagePath());
+                intent.putExtra("sightDetails", sights.get(holder.getAdapterPosition()).getSightDetails());
+                intent.putExtra("sightSourceLink", sights.get(holder.getAdapterPosition()).getSightSourceLink());
                 context.startActivity(intent);
             }
         });
@@ -78,14 +78,14 @@ public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter<PlacesRecycl
 
         TextView list_itemName, list_itemAddress;
         ImageView list_itemImage;
-        RelativeLayout parentLayout;
+        RelativeLayout list_itemParentLayout;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            list_itemName = itemView.findViewById(R.id.list_item_name);
-            list_itemAddress = itemView.findViewById(R.id.list_item_address);
-            list_itemImage = itemView.findViewById(R.id.list_item_image);
-            parentLayout = itemView.findViewById(R.id.parent_layout);
+            list_itemName = itemView.findViewById(R.id.places_list_item_name);
+            list_itemAddress = itemView.findViewById(R.id.places_list_item_address);
+            list_itemImage = itemView.findViewById(R.id.places_list_item_image);
+            list_itemParentLayout = itemView.findViewById(R.id.places_list_item_parent_layout);
         }
     }
 }

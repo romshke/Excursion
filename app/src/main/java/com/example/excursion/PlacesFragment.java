@@ -48,10 +48,7 @@ public class PlacesFragment extends Fragment {
         sights = new ArrayList<>();
         storeData();
 
-        System.out.println(sights.get(1).getSightName());
-        System.out.println(sights.get(1).getSightDetails());
-
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = view.findViewById(R.id.places_recyclerview);
         PlacesRecyclerViewAdapter adapter = new PlacesRecyclerViewAdapter(this.getContext(), sights);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
@@ -60,14 +57,22 @@ public class PlacesFragment extends Fragment {
     }
 
     private void storeData() {
-        Cursor cursor = databaseHelper.readAllData();
+        Cursor cursor = databaseHelper.readAllSightsData();
 
         if (cursor.getCount() == 0) {
             Toast.makeText(this.getContext(), "No data.", Toast.LENGTH_SHORT).show();
         }
         else {
             while (cursor.moveToNext()) {
-                sights.add(new Sight(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getDouble(3), cursor.getDouble(4), cursor.getString(5), cursor.getString(6), cursor.getString(7)));
+                sights.add(new Sight(
+                        cursor.getInt(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getDouble(3),
+                        cursor.getDouble(4),
+                        cursor.getString(5),
+                        cursor.getString(6),
+                        cursor.getString(7)));
             }
         }
     }
