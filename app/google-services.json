@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "119211295349",
+    "firebase_url": "https://probable-byway-277615.firebaseio.com",
+    "project_id": "probable-byway-277615",
+    "storage_bucket": "probable-byway-277615.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119211295349:android:63bf9953111b0afa8dee3c",
+        "android_client_info": {
+          "package_name": "com.example.excursion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "119211295349-gdkbumtipehdoikb03aj6clmfls05lm8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmXTsXLyYJ5T3DuCr7nOs4kWtnxxRR_ts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "119211295349-gdkbumtipehdoikb03aj6clmfls05lm8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
