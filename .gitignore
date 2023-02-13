@@ -21,3 +21,4 @@ proguard-rules.pro
 
 /app/src/test
 /app/src/androidTest
+/gradle/
