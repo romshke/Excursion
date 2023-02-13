@@ -15,6 +15,7 @@ output.json
 .idea/
 
 google-services.json
+build.gradle
 proguard-rules.pro
 
 /app/src/main/res/values/google_maps.xml
